@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "791882969535",
+    "project_id": "tapit-bce31",
+    "storage_bucket": "tapit-bce31.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791882969535:android:11c4d61411a0c2329d310a",
+        "android_client_info": {
+          "package_name": "com.example.game"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJVygYvPhnWU7jDXA6E9IiZoTY7-WRrnQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
