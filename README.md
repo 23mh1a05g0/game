@@ -12,7 +12,6 @@ Welcome to the **Game** repository! This project is a robust, high-performance c
 ## 📖 Table of Contents
 - [Overview](#-overview)
 - [Key Features](#-key-features)
-- [Game Mechanics & Engine](#-game-mechanics--engine)
 - [Tech Stack & Architecture](#-tech-stack--architecture)
 - [Project Structure](#-project-structure)
 - [Prerequisites](#-prerequisites)
@@ -20,6 +19,7 @@ Welcome to the **Game** repository! This project is a robust, high-performance c
 - [Running the Game](#-running-the-game)
 - [Performance Optimization](#-performance-optimization)
 - [Best Practices](#-best-practices)
+- [Troubleshooting](#-troubleshooting)
 - [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
 - [License](#-license)
@@ -33,15 +33,11 @@ Developing games in Flutter allows for a single codebase to be deployed natively
 * **Persistent Data Storage:** Local caching for high scores using Offline-First architecture.
 * **Immersive Audio:** Integrated background music and low-latency sound effects.
 
-## ⚙️ Game Mechanics & Engine
-* **The Game Loop:** Driven by Flutter's `Ticker` class, ensuring synchronization with device refresh rates.
-* **Collision Detection:** Implementation of AABB and circular collision logic for precise interactions.
-* **Sprite Management:** Efficient loading and caching of sprite sheets to reduce memory overhead.
-
 ## 🏗️ Tech Stack & Architecture
 * **Framework:** [Flutter](https://flutter.dev/) (v3.19+)
 * **State Management:** Riverpod / Provider
 * **Local Database:** Hive / Isar
+* **Game Engine:** Custom Ticker-based loop or [Flame Engine](https://flame-engine.org/)
 * **Audio:** `audioplayers` package
 
 ## 📂 Project Structure
@@ -53,9 +49,9 @@ game/
 ├── assets/           # Images, audio, and fonts
 ├── lib/
 │   ├── main.dart     # Entry point
-│   ├── core/         # Shared utilities
+│   ├── core/         # Shared utilities & constants
 │   ├── game/         # Core loop, physics, rendering
-│   ├── screens/      # UI Layer
+│   ├── screens/      # UI Layer (Menus, HUDs)
 │   ├── state/        # Business logic/State management
 │   └── services/     # API/Database integrations
 └── test/             # Unit and widget tests
@@ -89,6 +85,13 @@ Logic/UI Separation: Always use the state/ folder for business logic to keep wid
 Constants: Use core/constants.dart for all physics and game-tuning variables.
 
 Testing: Maintain high coverage using flutter test.
+
+🛠 Troubleshooting
+"Flutter command not found": Add Flutter to your system PATH.
+
+Dependency Conflicts: Run flutter pub cache clean followed by flutter pub get.
+
+Build Errors: Ensure you have the latest Android SDK Build-Tools via Android Studio.
 
 🗺️ Roadmap
 [x] Core game loop
