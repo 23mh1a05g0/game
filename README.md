@@ -49,6 +49,93 @@ Instead of relying purely on standard UI widgets, this game utilizes a customize
 
 ## 📂 Project Structure
 The repository follows a feature-first, highly modular architecture to maintain scalability as the game grows:
+🛠️ Prerequisites
+Before you begin, ensure you have the following tools installed on your local machine:
+
+Flutter SDK: Install Flutter
+
+Dart SDK: (Comes bundled with Flutter)
+
+IDE: VS Code, Android Studio, or IntelliJ IDEA (with Flutter & Dart plugins installed)
+
+Emulators/Simulators: Android Emulator, iOS Simulator, or a physical device for testing.
+
+💻 Installation & Setup
+Clone the repository:
+
+Bash
+git clone [https://github.com/23mh1a05g0/game.git](https://github.com/23mh1a05g0/game.git)
+Navigate to the project directory:
+
+Bash
+cd game
+Fetch all dependencies:
+
+Bash
+flutter pub get
+🎮 Running the Game
+To run the game locally, execute the following command. It will launch on the default connected device or emulator.
+
+Bash
+# Run on the default available device
+flutter run
+
+# To run specifically on the Web (Chrome)
+flutter run -d chrome
+
+# To run specifically on macOS/Windows desktop
+flutter run -d macos
+flutter run -d windows
+🧠 State Management & Storage
+Managing the state of a game (score, player health, active level, settings) is critical. This project isolates the UI layer from the heavy game logic:
+
+Global App State: Handles overarching data like volume preferences, unlocked levels, and user profiles using shared providers.
+
+Ephemeral State: Handles local animations and immediate screen transitions (e.g., menu fades).
+
+Game State Engine: Manages the active game loop, tracking entity positions, spawn rates, and physics calculations.
+
+Data persistence is handled via a fast, offline-first NoSQL local database setup, ensuring instant load times when the app is restarted.
+
+🗺️ Roadmap
+[x] Establish core game loop and rendering engine.
+
+[x] Implement cross-platform touch and keyboard controls.
+
+[x] Add Main Menu, Settings, and Game Over UI overlays.
+
+[ ] Integrate local database for High Score tracking.
+
+[ ] Add sound effects and background music toggles.
+
+[ ] Implement advanced particle effects for player interactions.
+
+[ ] Global Leaderboard API integration.
+
+🧪 Testing
+To ensure the game logic remains intact after new commits, run the automated test suite:
+
+Bash
+# Run all unit and widget tests
+flutter test
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+If you want to contribute to this game repository:
+
+Fork the project.
+
+Create your feature branch (git checkout -b feature/NewLevel).
+
+Commit your changes (git commit -m 'Add New Level 5').
+
+Push to the branch (git push origin feature/NewLevel).
+
+Open a Pull Request detailing your additions.
+
+📄 License
+This project is open-source and available under the MIT License. See the LICENSE file for more details.
+
+Built with 💙 using Flutter.
 
 ```text
 game/
