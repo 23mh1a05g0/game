@@ -18,150 +18,6 @@ Welcome to the **Game** repository! This project is a robust, high-performance c
 - [Prerequisites](#-prerequisites)
 - [Installation & Setup](#-installation--setup)
 - [Running the Game](#-running-the-game)
-- [State Management & Storage](#-state-management--storage)
-- [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
-- [License](#-license)
-
-## 🚀 Overview
-Developing games in Flutter allows for a single codebase to be deployed natively across iOS, Android, Windows, macOS, Linux, and the Web. This repository demonstrates how to manage complex game loops, rendering optimizations, state transitions, and interactive UI elements without compromising on performance. The game targets a smooth **60 to 120 FPS** across all supported devices.
-
-## ✨ Key Features
-* **True Cross-Platform Support:** Compile and run natively on mobile, desktop, and web environments from day one.
-* **Responsive UI/UX:** Adaptive layouts that scale perfectly across different screen sizes, resolutions, and aspect ratios.
-* **High-Performance Rendering:** Optimized painting and animation controllers to ensure zero frame drops during intense gameplay.
-* **Persistent Data Storage:** Local caching for high scores, user preferences, and saved game states (Offline-First support).
-* **Immersive Audio:** Integrated background music and low-latency sound effects using native audio bridging.
-* **Gamepad & Keyboard Support:** Configured inputs for touch screens, external gamepads, and physical keyboards.
-
-## ⚙️ Game Mechanics & Engine
-Instead of relying purely on standard UI widgets, this game utilizes a customized rendering loop tailored for performance:
-* **The Game Loop:** Driven by Flutter's `Ticker` class, ensuring that entity updates and rendering cycles are perfectly synchronized with the device's screen refresh rate.
-* **Collision Detection:** Implementations of Axis-Aligned Bounding Box (AABB) and circular collision logic for precise interactions.
-* **Sprite Management:** Efficient loading and caching of sprite sheets to reduce memory overhead during active gameplay.
-
-## 🏗️ Tech Stack & Architecture
-* **Framework:** [Flutter](https://flutter.dev/) (v3.19+)
-* **Language:** Dart 3.0+
-* **State Management:** Riverpod / Provider (Decouples UI from game logic)
-* **Local Database:** Hive / Isar (For rapid read/write of game states)
-* **Audio:** `audioplayers` package for background tracks and short SFX.
-## ⚡ Performance Optimization Strategies
-To maintain the target 60+ FPS, we have implemented several optimizations:
-* **Object Pooling:** Reusing game entities (projectiles, enemies) instead of constantly destroying and creating objects to minimize Garbage Collection (GC) pauses.
-* **Sprite Batching:** Minimizing draw calls by grouping sprites that share the same texture atlas.
-* **Lazy Loading:** Assets are loaded into memory asynchronously during level transition screens to keep the initial app launch time low.
-* **Component-Based Logic:** Using an entity-component system (ECS) approach to decouple physics, rendering, and gameplay logic, allowing for easy performance profiling of individual systems.
-
-## 🛠 Troubleshooting
-If you encounter issues during installation or execution, check these common fixes:
-* **"Flutter command not found":** Ensure your Flutter SDK path is added to your system's PATH environment variable.
-* **Dependency Conflicts:** If `flutter pub get` fails, try running `flutter pub cache clean` followed by `flutter pub get`.
-* **Android Build Errors:** Ensure you have the latest Android SDK Build-Tools installed via Android Studio's SDK Manager.
-* **Graphics Rendering:** If the game stutters on desktop, ensure your GPU drivers are updated, or try running with the `--renderer=gl` flag.
-
-## 🌟 Why This Project?
-This repository is an experiment in **"Flutter-as-a-Game-Engine."** While standard engines like Unity or Godot are traditional choices, Flutter offers a unique advantage: **Unified UI & Gameplay.** * **Seamless Integration:** You can build complex, native-feeling UIs (menus, shops, inventory screens) using Flutter's widget system while maintaining a high-performance game loop.
-* **Rapid Iteration:** Leverage Flutter’s "Hot Reload" to tweak game mechanics, physics values, and UI positions in real-time without restarting the game.
-* **Accessibility:** Built with Flutter's accessibility support, ensuring that even complex interactive games can be made accessible to a wider range of users.
-
-## 📚 Further Learning
-To dive deeper into the technologies powering this game, check out these resources:
-* [Flutter Game Development Documentation](https://docs.flutter.dev/ui/animations)
-* [Flame Engine Guide](https://flame-engine.org/) (Recommended for advanced sprite management)
-* [Riverpod State Management](https://riverpod.dev/)
-
----
-## 📬 Contact
-**Bhagya Prasad**
-* GitHub: [@Bhagyaprasad92](https://github.com/Bhagyaprasad92)
-* LinkedIn: [Insert your LinkedIn profile URL here]
-* Email: [Insert your contact email here]
-## 📂 Project Structure
-The repository follows a feature-first, highly modular architecture to maintain scalability as the game grows:
-🛠️ Prerequisites
-Before you begin, ensure you have the following tools installed on your local machine:
-
-Flutter SDK: Install Flutter
-
-Dart SDK: (Comes bundled with Flutter)
-
-IDE: VS Code, Android Studio, or IntelliJ IDEA (with Flutter & Dart plugins installed)
-
-Emulators/Simulators: Android Emulator, iOS Simulator, or a physical device for testing.
-
-💻 Installation & Setup
-Clone the repository:
-
-Bash
-git clone [https://github.com/23mh1a05g0/game.git](https://github.com/23mh1a05g0/game.git)
-Navigate to the project directory:
-
-Bash
-cd game
-Fetch all dependencies:
-
-Bash
-flutter pub get
-🎮 Running the Game
-To run the game locally, execute the following command. It will launch on the default connected device or emulator.
-
-Bash
-# Run on the default available device
-flutter run
-
-# To run specifically on the Web (Chrome)
-flutter run -d chrome
-
-# To run specifically on macOS/Windows desktop
-flutter run -d macos
-flutter run -d windows
-🧠 State Management & Storage
-Managing the state of a game (score, player health, active level, settings) is critical. This project isolates the UI layer from the heavy game logic:
-
-Global App State: Handles overarching data like volume preferences, unlocked levels, and user profiles using shared providers.
-
-Ephemeral State: Handles local animations and immediate screen transitions (e.g., menu fades).
-
-Game State Engine: Manages the active game loop, tracking entity positions, spawn rates, and physics calculations.
-
-Data persistence is handled via a fast, offline-first NoSQL local database setup, ensuring instant load times when the app is restarted.
-
-🗺️ Roadmap
-[x] Establish core game loop and rendering engine.
-
-[x] Implement cross-platform touch and keyboard controls.
-
-[x] Add Main Menu, Settings, and Game Over UI overlays.
-
-[ ] Integrate local database for High Score tracking.
-
-[ ] Add sound effects and background music toggles.
-
-[ ] Implement advanced particle effects for player interactions.
-
-[ ] Global Leaderboard API integration.
-
-# 🎮 Game: A High-Performance Cross-Platform Flutter Experience
-
-![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
-![GitHub repo size](https://img.shields.io/github/repo-size/23mh1a05g0/game?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/23mh1a05g0/game?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/23mh1a05g0/game?style=flat-square)
-![License](https://img.shields.io/github/license/23mh1a05g0/game?style=flat-square)
-
-Welcome to the **Game** repository! This project is a robust, high-performance cross-platform game built entirely using the Flutter framework and Dart. It serves as both a fully playable application and a comprehensive boilerplate for modern mobile, web, and desktop game development.
-
-## 📖 Table of Contents
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Game Mechanics & Engine](#-game-mechanics--engine)
-- [Tech Stack & Architecture](#-tech-stack--architecture)
-- [Project Structure](#-project-structure)
-- [Prerequisites](#-prerequisites)
-- [Installation & Setup](#-installation--setup)
-- [Running the Game](#-running-the-game)
 - [Performance Optimization](#-performance-optimization)
 - [Best Practices](#-best-practices)
 - [Roadmap](#-roadmap)
@@ -193,54 +49,70 @@ Developing games in Flutter allows for a single codebase to be deployed natively
 game/
 ├── android/          # Native Android configuration
 ├── ios/              # Native iOS configuration
+├── web/              # Web deployment configurations
 ├── assets/           # Images, audio, and fonts
 ├── lib/
+│   ├── main.dart     # Entry point
 │   ├── core/         # Shared utilities
 │   ├── game/         # Core loop, physics, rendering
 │   ├── screens/      # UI Layer
 │   ├── state/        # Business logic/State management
 │   └── services/     # API/Database integrations
 └── test/             # Unit and widget tests
+🛠️ Prerequisites
+Flutter SDK: Install here
 
-🧪 Testing
-To ensure the game logic remains intact after new commits, run the automated test suite:
+IDE: VS Code or Android Studio with Flutter/Dart plugins.
 
-Bash
-# Run all unit and widget tests
-flutter test
+💻 Installation & Setup
+Clone: git clone https://github.com/23mh1a05g0/game.git
+
+Setup: cd game
+
+Fetch: flutter pub get
+
+🎮 Running the Game
+Mobile/Desktop: flutter run
+
+Web: flutter run -d chrome
+
+⚡ Performance Optimization
+Object Pooling: Minimizes Garbage Collection by reusing entities.
+
+Sprite Batching: Reduces draw calls via texture atlases.
+
+Lazy Loading: Asynchronous asset loading for fast startups.
+
+🏆 Best Practices
+Logic/UI Separation: Always use the state/ folder for business logic to keep widgets clean.
+
+Constants: Use core/constants.dart for all physics and game-tuning variables.
+
+Testing: Maintain high coverage using flutter test.
+
+🗺️ Roadmap
+[x] Core game loop
+
+[x] Input controls
+
+[ ] Local high-score leaderboard
+
+[ ] Particle effect system
+
+[ ] Global Leaderboard API integration
+
 🤝 Contributing
-Contributions, issues, and feature requests are welcome!
-If you want to contribute to this game repository:
-
 Fork the project.
 
-Create your feature branch (git checkout -b feature/NewLevel).
+Create your branch: git checkout -b feature/AmazingFeature
 
-Commit your changes (git commit -m 'Add New Level 5').
+Commit changes: git commit -m 'Add AmazingFeature'
 
-Push to the branch (git push origin feature/NewLevel).
+Push: git push origin feature/AmazingFeature
 
-Open a Pull Request detailing your additions.
+Open a Pull Request.
 
 📄 License
 This project is open-source and available under the MIT License. See the LICENSE file for more details.
 
 Built with 💙 using Flutter.
-
-```text
-game/
-├── android/                  # Native Android configuration files
-├── ios/                      # Native iOS configuration files
-├── web/                      # Web deployment configurations
-├── assets/
-│   ├── images/               # Sprites, backgrounds, and UI elements
-│   ├── audio/                # SFX and background music
-│   └── fonts/                # Custom typography
-├── lib/
-│   ├── main.dart             # Entry point of the application
-│   ├── core/                 # Shared utilities, constants, and theme data
-│   ├── game/                 # Core game loop, entities, physics, and rendering
-│   ├── screens/              # UI screens (Main Menu, Settings, Pause Menu, Game Over)
-│   ├── state/                # State management providers/controllers
-│   └── services/             # Audio, local storage, and API integrations
-└── test/                     # Unit, widget, and performance tests
